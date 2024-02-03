@@ -1,0 +1,259 @@
+{
+    "height": "100px", // Waybar height (to be removed for auto height)
+    "margin": "7px",
+    "layer": "top",
+    "spacing": "10px",
+    // Choose the order of the modules
+    "modules-left":   ["custom/BoS", "hyprland/workspaces", "wlr/taskbar"],
+    "modules-center": ["custom/spotlogo", "custom/playerctl#backward", "custom/playerctl#play",
+      "custom/playerctl#foward", "custom/spotify", "custom/cavaOut2", "custom/tower"],
+    "modules-right": ["custom/weather", "pulseaudio", "network", "custom/vpn", "idle_inhibitor", "clock", "custom/power"],
+
+
+    "custom/spotlogo":{
+    "format": "    ",
+    },
+
+      "custom/tower":{
+    "format": "    ",
+    },
+
+
+     "custom/BoS":{
+    "format": "    ",
+    },
+
+    "custom/vpn": {
+    "format": "VPN ",
+    "exec": "echo '{\"class\": \"connected\"}'",
+    "exec-if": "test -d /proc/sys/net/ipv4/conf/tun0",
+    "return-type": "json",
+    "interval": 5
+},
+
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "󱤱 ",
+            "deactivated": "󱠛 ",
+        }
+    },
+    "tray": {
+        // "icon-size": 25,
+    },
+
+
+    "custom/playerctl#backward": {
+      "format": "󰙣 ",
+      "on-click": "playerctl previous",
+      "on-scroll-down": "playerctl volume .05-",
+      "on-scroll-up": "playerctl volume .05+"
+    },
+    "custom/playerctl#foward": {
+      "format": "󰙡 ",
+      "on-click": "playerctl next",
+      "on-scroll-down": "playerctl volume .05-",
+      "on-scroll-up": "playerctl volume .05+"
+    },
+    "custom/playerctl#play": {
+      "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+      "format": "{icon}",
+      "format-icons": {
+        "Paused": "<span> </span>",
+        "Playing": "<span>󰏥 </span>",
+        "Stopped": "<span> </span>"
+      },
+      "on-click": "playerctl play-pause",
+      "on-scroll-down": "playerctl volume .05-",
+      "on-scroll-up": "playerctl volume .05+",
+      "return-type": "json"
+    },
+
+    "battery": {
+        "format": "<span font='Font Awesome 5 Free 11'>{icon}</span>  {capacity}% - {time}",
+        "format-icons": ["", "", "", "", ""],
+        "format-time": "{H}h{M}m",
+        "format-charging": "<span font='Font Awesome 5 Free'></span>  <span font='Font Awesome 5 Free 11'>{icon}</span>  {capacity}% - {time}",
+        "format-full": "<span font='Font Awesome 5 Free'></span>  <span font='Font Awesome 5 Free 11'>{icon}</span>  Charged",
+        "interval": 30,
+        "states": {
+            "warning": 25,
+            "critical": 10
+        },
+        "tooltip": false,
+        "on-click": "2"
+    },
+
+    "clock": {
+        "format": "{: %b %d  %I:%M %p}",
+        "tooltip-format": "<span color='#d4be98' size='larger'>{:%Y %B}</span>\n<tt>{calendar}</tt>",
+        "calendar-weeks-pos": "right",
+        "today-format": "<span color='#A56840' weight='ultrabold'>{}</span>",
+        "format-calendar": "<span color='#d4be98' weight='normal'>{}</span>",
+        "format-calendar-weeks": "<span color='#ffffff'><b>W{:%V}</b></span>",
+        "format-calendar-weekdays": "<span color='#ffffff'><b>{}</b></span>",
+        "on-scroll": {
+                    "calendar": 1
+                     }
+    },
+    "cpu": {
+        "format": "{usage}% ",
+        "tooltip": true
+    },
+    "disk": {
+        "interval": 30,
+        "format": "{free} ",
+        "path": "/"
+    },
+    "custom/weather": {
+    "format": "{} °",
+    "tooltip": true,
+    "interval": 3600,
+    "exec": "wttrbar",
+    "return-type": "json"
+},
+
+"custom/power": {
+    "format": "    ",
+    "tooltip": true,
+    "on-click": "/home/motor/.config/rofi/powermenu/type-5/powermenu.sh",
+    "on-click-middle": "/home/motor/.config/rofi/scripts/launcher_t6",
+	},
+
+"custom/cavaOut": {
+"format-icons" : [
+      "▁",
+      "▂",
+      "▃",
+      "▄",
+      "▅",
+      "▆",
+      "▇",
+      "█"],
+"format": " {} ",
+"exec": "~/.config/waybar/scripts/cava-output.sh",
+"restart-interval": 1,
+"on-scroll-up": "pamixer --default-source -i 5",
+"on-scroll-down": "pamixer --default-source -d 5",
+"framerate": 30,
+    "autosens": 0,
+    "sensitivity": 70,
+    "framerate": 30,
+    "autosens": 0,
+    "sensitivity": 70,
+    "bars": 18,
+    "bar_delimiter": 0,
+    "monstercat": false,
+    "waves": false,
+    "noise_reduction": 0.3,
+    "input_delay": 2,
+    "sleep_timer": 15,
+    "bars": 25,
+    "bar_delimiter": 0,
+    "monstercat": false,
+    "waves": false,
+    "noise_reduction": 0.3,
+    "input_delay": 2,
+    "sleep_timer": 15,
+},
+
+"custom/cavaOut2": {
+"format-icons" : [
+      "▁",
+      "▂",
+      "▃",
+      "▄",
+      "▅",
+      "▆",
+      "▇",
+      "█"],
+"format": " {} ",
+"exec": "~/.config/waybar/scripts/cava-output.sh",
+"restart-interval": 1,
+"on-scroll-up": "pamixer --default-source -i 5",
+"on-scroll-down": "pamixer --default-source -d 5",
+"framerate": 30,
+    "autosens": 0,
+    "sensitivity": 70,
+    "framerate": 30,
+    "autosens": 0,
+    "sensitivity": 70,
+    "bars": 18,
+    "bar_delimiter": 0,
+    "monstercat": false,
+    "waves": false,
+    "noise_reduction": 0.3,
+    "input_delay": 2,
+    "sleep_timer": 15,
+    "bars": 25,
+    "bar_delimiter": 0,
+    "monstercat": false,
+    "waves": false,
+    "noise_reduction": 0.3,
+    "input_delay": 2,
+    "sleep_timer": 15,
+},
+
+"custom/spotify": {
+"format": "{}",
+"exec": "~/.config/waybar/scripts/spotify.sh",
+"return-type": "json",
+"on-click": "playerctl -p spotify play-pause",
+"on-scroll-up": "playerctl -p spotify next",
+"on-scroll-down": "playerctl -p spotify previous",
+"exec-if": "pgrep spotfiy"
+},
+
+    "memory": {
+        "format": "{}% "
+    },
+    "temperature": {
+    	"thermal-zone": 2,
+        "format": "{temperatureC}°C ",
+    },
+    "backlight": {
+        "format": "{percent}% ",
+    },
+    "battery#bat2": {
+        "bat": "BAT1",
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% ",
+        "format-plugged": "{capacity}% ",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+     "network": {
+        "format": "{icon}",
+        "format-alt": "{ipaddr}/{cidr} {icon}",
+        "format-alt-click": "click-right",
+        "format-wifi": "<span font='Font Awesome 5 Free 10'></span>",
+        "format-ethernet": "",
+        "format-disconnected": "󱘖",
+        "on-click": "alacritty -e ~/.config/waybar/scripts/network/rofi-network-manager.sh"},
+
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": " {volume}% {icon}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-icons": {
+            "headphone": " ",
+            "hands-free": " ",
+            "headset": " ",
+            "phone": " ",
+            "portable": " ",
+            "car": " ",
+            "default": [" ", " ", " "]
+        },
+        "on-click": "pavucontrol"
+    }
+}

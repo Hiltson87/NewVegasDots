@@ -1,0 +1,125 @@
+* {
+    border: none;
+    border-radius: 0px;
+    /*font-family: VictorMono, Iosevka Nerd Font, Noto Sans CJK;*/
+    font-family:  Material Icons Round, Monofonto;
+    font-size: 22px;
+    font-style: normal;
+    min-height: 0;
+}
+
+window#waybar {
+background-color: transparent;
+
+}
+
+.modules-left {
+background:rgba(37, 29, 17, 0.5);
+border-radius: 0px;
+border: 1px solid #CB9D48;
+padding: 0px 5px;
+-webkit-box-shadow: inset 5px -5px 5px 1px #2F2E2D;
+box-shadow: inset 5px -5px 5px 1px #2F2E2D;
+
+}
+
+.modules-center {
+background:rgba(37, 29, 17, 0.5);
+border-radius: 0px;
+border: 1px solid #CB9D48;
+padding: 0px 5px;
+-webkit-box-shadow: inset 0px -5px 5px 1px #2F2E2D;
+box-shadow: inset 0px -5px 5px 1px #2F2E2D;
+
+}
+.modules-right {
+background:rgba(37, 29, 17, 0.5);
+border-radius: 0px;
+border: 1px solid #CB9D48;
+padding: 0px 5px;
+-webkit-box-shadow: inset -5px -5px 5px 1px #2F2E2D;
+box-shadow: inset -5px -5px 5px 1px #2F2E2D;
+
+}
+
+
+#custom-cavaOut2, #custom-power{
+    color: #CB9D48;
+}
+
+#custom-spotlogo, #custom-tower {
+  background-image: url('/home/motor/.icons/FO4Icons/FO4MapMarkers/icon_62.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#custom-BoS {
+  background-image: url('/home/motor/.icons/FO4Icons/FO4MapMarkers/icon_215.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#wlr.taskbar, #custom-spotify, #pulseaudio, #custom-weather, #network, #custom-vpn, #idle_inhibitor, #clock
+{
+    padding: 0px 5px;
+    color: #CB9D48;
+}
+
+#custom-power{
+  background-image: url('/home/motor/.icons/FO4Icons/FO4PipFallIcons/icon_3.svg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+
+#custom-weather,#custom-spotify, #clock{
+    color: #CB9D48;
+}
+
+
+#workspaces{
+    padding: 0px 5px;
+}
+
+#taskbar{
+    padding: 0px 20px 0px 10px;
+}
+
+#workspaces button {
+    padding: 0px 2px;
+    border-radius: 16px;
+}
+
+#workspaces button.active {
+    color: #CB9D48;
+    background-color: #554325;
+    border-radius: 0px;
+    font-weight: bold;
+}
+
+#workspaces button:hover {
+	background-color: #635C3B;
+	color: #E0E5DD;
+	border-radius: 16px;
+    font-weight: bold;
+}
+
+#taskbar button {
+    padding: 0px 3px;
+    border-radius: 16px;
+}
+
+#taskbar button.active {
+    background-color: #554325;
+    border-radius: 0px;
+    font-weight: bold;
+}
+
+#taskbar button:hover {
+	color: #C48C6B;
+	border-radius: 16px;
+    font-weight: bold;
+}
